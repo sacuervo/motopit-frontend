@@ -3,11 +3,12 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Motos } from './pages/motos/motos';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'login', component: Login },
   { path: 'registro', component: Register },
-  { path: 'motos', component: Motos },
+  { path: 'motos', component: Motos, canActivate: [authGuard] },
   { path: '**', redirectTo: '' },
 ];
