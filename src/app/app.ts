@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './shared/navbar/navbar';
+import { Footer } from './shared/footer/footer';
 
 @Component({
+  imports: [RouterOutlet, Navbar, Footer],
   selector: 'app-root',
-  imports: [RouterOutlet],
+  styleUrl: './app.scss',
   templateUrl: './app.html',
-  styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('motopit-frontend');
-}
+export class App {}
