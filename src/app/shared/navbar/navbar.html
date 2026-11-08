@@ -30,6 +30,26 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/" fragment="contacto">Contacto</a>
           </li>
+          @if (authService.loggedIn()) {
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/motos" routerLinkActive="active">Mis motos</a>
+            </li>
+            <li class="nav-item">
+              <span class="navbar-text mx-lg-2">Hola, {{ authService.nombre() }}</span>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn btn-outline-light btn-sm" (click)="logout()">
+                Cerrar sesión
+              </button>
+            </li>
+          } @else {
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Iniciar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary btn-sm ms-lg-2" routerLink="/registro">Registrarse</a>
+            </li>
+          }
         </ul>
       </div>
     </div>
